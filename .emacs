@@ -8,7 +8,11 @@
 (setq user-mail-address "yang.runnan@gmail.com")
 
 ;;; uncomment this line to disable loading of "default.el" at startup
-;; (setq inhibit-default-init t)
+(setq inhibit-default-init t)
+
+;; mouse control
+(when (eq window-system nil)
+  (xterm-mouse-mode t))
 
 ;; enable visual feedback on selections
 (setq transient-mark-mode t)
@@ -46,3 +50,31 @@
       auto-save-interval 2000
             )
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(inhibit-startup-screen t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; Backups in /var/tmp
+;;(setq
+;; backup-by-copying t
+;; backup-directory-alist
+;; '((".*" . temporary-file-directory))
+;; delete-old-version t
+;; kept-new-versions 6
+;; kept-old-versions 2
+;; version-control t)
+
+;; ESS
+
+(load "/usr/local/share/emacs/site-lisp/ess/ess-site.el")
+(setq inferior-julia-program-name "/usr/local/bin/julia")
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/ess/")
