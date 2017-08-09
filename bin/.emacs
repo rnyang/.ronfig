@@ -75,6 +75,32 @@
 
 ;; ESS
 
-(load "/usr/local/share/emacs/site-lisp/ess/ess-site.el")
-(setq inferior-julia-program-name "/usr/local/bin/julia")
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/ess/")
+;;(load "/usr/share/emacs24/site-lisp/ess/ess-site.el")
+;;(add-to-list 'load-path "/home/ron/.emacs.d/elpa/ess-20170728.238/lisp/")
+(add-to-list 'load-path "/home/ron/bin/ess/lisp")
+(load "ess-site")
+;;(load "/home/ron/.emacs.d/elpa/ess-20170728.238/lisp/ess-site")
+
+;; Julia Mode
+;;(add-to-list 'load-path "/home/ron/.emacs.d/elpa/julia-mode-20170710.538/")
+;;(require 'julia-mode)
+(setq inferior-julia-program-name "/home/ron/bin/julia-f4c6c9d4bb/bin/julia")
+;;(add-to-list 'load-path "/usr/share/emacs24/site-lisp/ess/")
+
+;; MELPA
+(require 'package) ;; You might already have this line
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+		    (not (gnutls-available-p))))
+       (url (concat (if no-ssl "http" "https") "://melpa.org/packages/")))
+  (add-to-list 'package-archives (cons "melpa" url) t))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize) ;; You might already have this line
+
+;; Manually set jump navigation keys
+;; (b/c they get mangled in tmux)
+(global-set-key "\M-[1;5C" 'forward-word);
+(global-set-key "\M-[1;5D" 'backward-word);
+(global-set-key "\M-[1;5B" 'forward-paragraph);
+(global-set-key "\M-[1;5A" 'backward-paragraph);

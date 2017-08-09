@@ -12,9 +12,9 @@ alias ...='cd ../..'
 alias dbox='cd ~/Dropbox'
 
 # Use bash-completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-fi
+#if [ -f $(brew --prefix)/etc/bash_completion ]; then
+#    . $(brew --prefix)/etc/bash_completion
+#fi
 
 # Use thefuck
-eval "$(thefuck --alias)"
+#eval "$(thefuck --alias)"
