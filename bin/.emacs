@@ -1,6 +1,6 @@
 ;; .emacs
 
-;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;
 ;;;; USER DETAILS
 ;;;;;;;;;;;;;;;;;
 
@@ -104,3 +104,39 @@
 (global-set-key "\M-[1;5D" 'backward-word);
 (global-set-key "\M-[1;5B" 'forward-paragraph);
 (global-set-key "\M-[1;5A" 'backward-paragraph);
+
+(require 'cl)
+(require 'saveplace)
+(require 'ffap)
+(require 'uniquify)
+(require 'ansi-color)
+(require 'recentf)
+
+;; Python Packages
+;(autoload 'python-mode "python-mode" "Python Mode." t)
+;(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+;(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+
+;(setq
+; python-shell-interpreter "ipython"
+; python-shell-interpreter-args ""
+; python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+; python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+; python-shell-completion-setup-code
+; "from IPython.core.completerlib import module_completion"
+; python-shell-completion-module-string-code
+; "';'.join(module_completion('''%s'''))\n"
+; python-shell-completion-string-code
+;    "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+
+;; Latex
+(require 'latex-pretty-symbols)
+(setq TeX-parse-self t) ; Enable parse on load.
+(setq TeX-auto-save t) ; Enable parse on save.
+(add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
+(setq latex-run-command "pdflatex")
+
+
+;; elpy
+(package-initialize)
+(elpy-enable)
